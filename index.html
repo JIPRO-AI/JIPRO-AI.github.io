@@ -109,6 +109,86 @@ h2 em{font-style:italic;color:var(--accent)}
     margin-top:36px;padding-top:28px;border-top:1px solid var(--border);
     font-size:13px;color:var(--text2);font-weight:400;letter-spacing:.02em;line-height:1.8;
 }
+
+/* IP */
+.ip-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.ip-block{background:var(--surface);padding:48px 40px}
+.ip-block h3{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:400;color:var(--white);margin-bottom:16px}
+.ip-block p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:16px;font-weight:300}
+.ip-example{
+    margin-top:20px;padding:20px;
+    background:var(--bg);border:1px solid var(--border);border-radius:8px;
+    font-size:12.5px;color:var(--text2);line-height:1.7;
+    font-family:'SF Mono',SFMono-Regular,'Fira Code',Consolas,monospace;
+}
+.ip-example b{color:var(--warm)}
+.levels{display:flex;gap:2px;margin-top:20px}
+.level{flex:1;padding:10px 4px;text-align:center;font-size:10px;font-weight:500;letter-spacing:.04em;border-radius:4px}
+.l1{background:rgba(200,120,100,.15);color:rgba(200,140,120,.8)}
+.l2{background:rgba(200,160,100,.15);color:rgba(200,170,120,.8)}
+.l3{background:rgba(200,180,100,.15);color:rgba(200,190,120,.8)}
+.l4{background:rgba(120,180,140,.15);color:rgba(140,200,160,.8)}
+.l5{background:rgba(120,160,200,.15);color:rgba(140,180,220,.8)}
+.l6{background:rgba(150,130,200,.15);color:rgba(170,150,220,.8)}
+
+/* PRODUCTS */
+.product-list{margin-top:48px;display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.product-row{
+    background:var(--surface);padding:32px 40px;
+    display:grid;grid-template-columns:40px 1fr auto;gap:24px;align-items:center;
+    transition:background .3s;
+}
+.product-row:hover{background:var(--surface2)}
+.product-num{font-size:12px;color:var(--text3);font-weight:500;font-family:'SF Mono',monospace}
+.product-info h3{font-size:16px;font-weight:500;color:var(--white);margin-bottom:4px;letter-spacing:-.01em}
+.product-info p{font-size:13px;color:var(--text2);font-weight:300;line-height:1.6}
+.product-status{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px;white-space:nowrap}
+.s-live{background:rgba(120,180,140,.1);color:rgba(140,200,160,.8);border:1px solid rgba(120,180,140,.15)}
+.s-dev{background:rgba(120,160,200,.1);color:rgba(140,180,220,.8);border:1px solid rgba(120,160,200,.15)}
+.s-pkg{background:rgba(200,180,140,.1);color:rgba(200,180,140,.8);border:1px solid rgba(200,180,140,.15)}
+
+/* SERVICES */
+.service-list{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.service-item h3{font-size:15px;font-weight:500;color:var(--white);margin-bottom:8px;letter-spacing:-.01em}
+.service-item p{font-size:13px;color:var(--text2);line-height:1.8;font-weight:300}
+.service-item{padding-bottom:24px;border-bottom:1px solid var(--border)}
+
+/* RESEARCH */
+.research-list{margin-top:48px;display:flex;flex-direction:column;gap:20px}
+.research-row{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.research-row h4{font-size:14px;font-weight:400;color:var(--white);letter-spacing:-.01em}
+.research-row span{font-size:11px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;font-weight:500;white-space:nowrap;margin-left:24px}
+
+/* CONNECT */
+.connect-center{text-align:center;margin-top:48px}
+.connect-row{display:flex;gap:32px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.connect-item{text-align:center}
+.connect-item .plat{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:4px;font-weight:500}
+.connect-item .handle{font-size:14px;color:var(--text);font-weight:400;transition:color .3s}
+.connect-item:hover .handle{color:var(--white)}
+.connect-email{margin-top:48px;font-size:13px;color:var(--text3)}
+.connect-email a{color:var(--text2)}
+
+/* FOOTER */
+footer{padding:48px 32px;text-align:center}
+footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    section{padding:100px 24px 60px}
+    .hero h1{font-size:40px}
+    h2{font-size:32px}
+    .about-layout{grid-template-columns:1fr;gap:48px}
+    .about-meta{position:static}
+    .ip-grid{grid-template-columns:1fr}
+    .service-list{grid-template-columns:1fr}
+    .product-row{grid-template-columns:1fr;gap:12px}
+    .product-num{display:none}
+    .product-status{justify-self:start}
+    nav .links{display:none}
+    .research-row{flex-direction:column;gap:4px}
+    .research-row span{margin-left:0}
+}
 </style>
 </head>
 <body>
@@ -165,7 +245,7 @@ h2 em{font-style:italic;color:var(--accent)}
             </div>
         </div>
         <div class="about-narrative">
-            <p>I’ve spent my career across manufacturing and supply chain operations — from production planning and procurement on a cosmetic manufacturing floor, to demand planning and inventory management inside a Fortune 500 electronics company. ERP implementations, MRP redesigns, $6B+ in order tracking. The kind of work where a bad decision doesn’t stay theoretical for long.</p>
+            <p>I've spent my career across manufacturing and supply chain operations — from production planning and procurement on a cosmetic manufacturing floor, to demand planning and inventory management inside a Fortune 500 electronics company. ERP implementations, MRP redesigns, $6B+ in order tracking. The kind of work where a bad decision doesn't stay theoretical for long.</p>
             <p>Over time, I noticed something that bothered me: <strong>equally capable people, looking at the same data, reaching completely different conclusions.</strong> The gap was never intelligence. It was how they structured their thinking.</p>
             <p>That observation became a framework. I started mapping the patterns — what separates someone who reacts to data from someone who designs the system that interprets it. Six distinct levels. Applies to people, teams, and — I eventually realized — AI systems too.</p>
             <p>Now I work at the intersection of <strong>operational systems thinking</strong> and <strong>AI reasoning architecture.</strong> Building diagnostic tools, MCP integrations, and consulting frameworks that help organizations catch decision failures before they compound.</p>
@@ -184,7 +264,7 @@ h2 em{font-style:italic;color:var(--accent)}
 <div class="container">
     <div class="label">Core Ideas</div>
     <h2>Two concepts, <em>one insight</em></h2>
-    <p style="font-size:15px;color:var(--text2);max-width:520px;font-weight:300;line-height:1.8">Small reasoning errors don’t stay small. They amplify through every layer of a decision chain — in supply chains, in teams, in AI.</p>
+    <p style="font-size:15px;color:var(--text2);max-width:520px;font-weight:300;line-height:1.8">Small reasoning errors don't stay small. They amplify through every layer of a decision chain — in supply chains, in teams, in AI.</p>
     <div class="ip-grid">
         <div class="ip-block">
             <h3>Cognitive Bullwhip Effect</h3>
@@ -201,7 +281,7 @@ h2 em{font-style:italic;color:var(--accent)}
         <div class="ip-block">
             <h3>Structured Cognition Model</h3>
             <p>Most diagnostic tools measure what you know. This one measures <strong style="color:var(--white)">how you think</strong> — the structural quality of reasoning itself.</p>
-            <p>The model defines six levels of cognitive maturity. At Level 1, you react to symptoms. At Level 6, you design the system that prevents symptoms from occurring. The gap between each level isn’t knowledge — it’s the ability to see one layer deeper into causation.</p>
+            <p>The model defines six levels of cognitive maturity. At Level 1, you react to symptoms. At Level 6, you design the system that prevents symptoms from occurring. The gap between each level isn't knowledge — it's the ability to see one layer deeper into causation.</p>
             <div class="levels">
                 <div class="level l1">Reactive</div>
                 <div class="level l2">Procedural</div>
@@ -228,7 +308,7 @@ h2 em{font-style:italic;color:var(--accent)}
 <section id="products">
 <div class="container">
     <div class="label">Products</div>
-    <h2>What I’m <em>building</em></h2>
+    <h2>What I'm <em>building</em></h2>
     <p style="font-size:15px;color:var(--text2);max-width:520px;font-weight:300;line-height:1.8;margin-bottom:8px">Developer tools, diagnostic systems, and operational AI — from npm packages to enterprise architectures.</p>
     <div class="product-list">
         <div class="product-row">
@@ -293,7 +373,7 @@ h2 em{font-style:italic;color:var(--accent)}
     <div class="service-list">
         <div class="service-item">
             <h3>Decision Quality Audit</h3>
-            <p>Map your team’s reasoning patterns against the Structured Cognition Model. Get a distribution analysis showing where thinking breaks down and specific paths to elevate decision quality.</p>
+            <p>Map your team's reasoning patterns against the Structured Cognition Model. Get a distribution analysis showing where thinking breaks down and specific paths to elevate decision quality.</p>
         </div>
         <div class="service-item">
             <h3>Supply Chain AI Architecture</h3>
@@ -301,7 +381,7 @@ h2 em{font-style:italic;color:var(--accent)}
         </div>
         <div class="service-item">
             <h3>AI Agent Reasoning Audit</h3>
-            <p>Evaluate your AI agent’s reasoning quality against the 6-level framework. Detect Cognitive Bullwhip patterns — where small input errors amplify into wrong outputs.</p>
+            <p>Evaluate your AI agent's reasoning quality against the 6-level framework. Detect Cognitive Bullwhip patterns — where small input errors amplify into wrong outputs.</p>
         </div>
         <div class="service-item">
             <h3>AI Systems Coaching</h3>
@@ -361,7 +441,7 @@ h2 em{font-style:italic;color:var(--accent)}
 <section id="connect">
 <div class="container connect-center">
     <div class="label">Connect</div>
-    <h2>Let’s build <em>something</em></h2>
+    <h2>Let's build <em>something</em></h2>
     <div class="connect-row">
         <a href="https://x.com/KCJIPro" target="_blank" class="connect-item">
             <div class="plat">X</div>
