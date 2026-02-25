@@ -4,107 +4,385 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JIPRO — Supply Chain × AI</title>
-<meta name="description" content="JIPRO — Supply chain professional building AI systems for enterprise operations.">
+<meta name="description" content="JIPRO — Supply chain professional building AI systems for enterprise operations. Creator of Cognitive Bullwhip, Structured Cognition Model, and SCM OS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0a;--surface:#101010;--surface2:#161616;--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);--text:#c8c8c8;--text2:#787878;--text3:#484848;--white:#e8e6e3;--accent:#a0b4c8;--accent2:#7a9bb5;--warm:#c8b4a0;--warm2:#b5a08a;--radius:12px}
+:root{
+    --bg:#0a0a0a;
+    --surface:#101010;
+    --surface2:#161616;
+    --border:rgba(255,255,255,.06);
+    --border2:rgba(255,255,255,.1);
+    --text:#c8c8c8;
+    --text2:#787878;
+    --text3:#484848;
+    --white:#e8e6e3;
+    --accent:#a0b4c8;
+    --accent2:#7a9bb5;
+    --warm:#c8b4a0;
+    --warm2:#b5a08a;
+    --radius:12px;
+}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.01em}
+body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    letter-spacing:-.01em;
+}
 ::selection{background:rgba(160,180,200,.2)}
 a{color:var(--accent);text-decoration:none;transition:color .3s ease}
 a:hover{color:var(--white)}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.8);backdrop-filter:blur(40px) saturate(1.2);-webkit-backdrop-filter:blur(40px) saturate(1.2);border-bottom:1px solid var(--border)}
-nav .inner{max-width:980px;margin:0 auto;padding:16px 32px;display:flex;justify-content:space-between;align-items:center}
+
+/* NAV */
+nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(10,10,10,.8);
+    backdrop-filter:blur(40px) saturate(1.2);
+    -webkit-backdrop-filter:blur(40px) saturate(1.2);
+    border-bottom:1px solid var(--border);
+}
+nav .inner{
+    max-width:980px;margin:0 auto;padding:16px 32px;
+    display:flex;justify-content:space-between;align-items:center;
+}
 nav .logo{font-size:15px;font-weight:600;color:var(--white);letter-spacing:.15em;text-transform:uppercase}
 nav .links{display:flex;gap:28px}
 nav .links a{color:var(--text2);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .3s}
 nav .links a:hover{color:var(--white)}
+
+/* LAYOUT */
 section{padding:140px 32px 100px}
 .container{max-width:980px;margin:0 auto}
 .label{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--text2);margin-bottom:24px}
 h2{font-family:'Playfair Display',Georgia,serif;font-size:42px;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:20px;letter-spacing:-.02em}
 h2 em{font-style:italic;color:var(--accent)}
+
+/* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding-top:80px}
 .hero-inner{max-width:980px;margin:0 auto;width:100%}
-.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(48px,8vw,80px);font-weight:400;color:var(--white);line-height:1.05;letter-spacing:-.03em;margin-bottom:32px}
+.hero h1{
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:clamp(48px,8vw,80px);
+    font-weight:400;
+    color:var(--white);
+    line-height:1.05;
+    letter-spacing:-.03em;
+    margin-bottom:32px;
+}
 .hero h1 em{font-style:italic;color:var(--accent)}
-.hero-desc{font-size:17px;color:var(--text2);max-width:520px;line-height:1.8;font-weight:300;margin-bottom:48px}
+.hero-desc{
+    font-size:17px;color:var(--text2);max-width:520px;
+    line-height:1.8;font-weight:300;margin-bottom:48px;
+}
 .hero-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
-.hero-links a{font-size:13px;font-weight:500;letter-spacing:.04em;padding:12px 0;color:var(--text2);border-bottom:1px solid var(--border2);transition:all .3s}
+.hero-links a{
+    font-size:13px;font-weight:500;letter-spacing:.04em;
+    padding:12px 0;color:var(--text2);
+    border-bottom:1px solid var(--border2);
+    transition:all .3s;
+}
 .hero-links a:hover{color:var(--white);border-color:var(--white)}
 .hero-links a.primary{color:var(--white);border-color:var(--accent2)}
+
+/* DIVIDER */
 .divider{height:1px;background:var(--border);max-width:980px;margin:0 auto}
+
+/* ABOUT */
 .about-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start;margin-top:48px}
 .about-meta{position:sticky;top:120px}
 .meta-item{margin-bottom:28px}
 .meta-label{font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
 .meta-value{font-size:14px;color:var(--text);font-weight:400}
-.about-narrative p{font-size:16px;color:var(--text);line-height:1.9;margin-bottom:20px;font-weight:300}
+.about-narrative p{
+    font-size:16px;color:var(--text);line-height:1.9;
+    margin-bottom:20px;font-weight:300;
+}
 .about-narrative strong{color:var(--white);font-weight:500}
-.career-line{margin-top:36px;padding-top:28px;border-top:1px solid var(--border);font-size:13px;color:var(--text2);font-weight:400;letter-spacing:.02em;line-height:1.8}
-.ip-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.ip-block{background:var(--surface);padding:48px 40px}
-.ip-block h3{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:400;color:var(--white);margin-bottom:16px}
-.ip-block p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:16px;font-weight:300}
-.ip-example{margin-top:20px;padding:20px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:12.5px;color:var(--text2);line-height:1.7;font-family:'SF Mono',SFMono-Regular,'Fira Code',Consolas,monospace}
-.ip-example b{color:var(--warm)}
-.levels{display:flex;gap:2px;margin-top:20px}
-.level{flex:1;padding:10px 4px;text-align:center;font-size:10px;font-weight:500;letter-spacing:.04em;border-radius:4px}
-.l1{background:rgba(200,120,100,.15);color:rgba(200,140,120,.8)}
-.l2{background:rgba(200,160,100,.15);color:rgba(200,170,120,.8)}
-.l3{background:rgba(200,180,100,.15);color:rgba(200,190,120,.8)}
-.l4{background:rgba(120,180,140,.15);color:rgba(140,200,160,.8)}
-.l5{background:rgba(120,160,200,.15);color:rgba(140,180,220,.8)}
-.l6{background:rgba(150,130,200,.15);color:rgba(170,150,220,.8)}
-.product-list{margin-top:48px;display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.product-row{background:var(--surface);padding:32px 40px;display:grid;grid-template-columns:40px 1fr auto;gap:24px;align-items:center;transition:background .3s}
-.product-row:hover{background:var(--surface2)}
-.product-num{font-size:12px;color:var(--text3);font-weight:500;font-family:'SF Mono',monospace}
-.product-info h3{font-size:16px;font-weight:500;color:var(--white);margin-bottom:4px;letter-spacing:-.01em}
-.product-info p{font-size:13px;color:var(--text2);font-weight:300;line-height:1.6}
-.product-status{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px;white-space:nowrap}
-.s-live{background:rgba(120,180,140,.1);color:rgba(140,200,160,.8);border:1px solid rgba(120,180,140,.15)}
-.s-dev{background:rgba(120,160,200,.1);color:rgba(140,180,220,.8);border:1px solid rgba(120,160,200,.15)}
-.s-pkg{background:rgba(200,180,140,.1);color:rgba(200,180,140,.8);border:1px solid rgba(200,180,140,.15)}
-.service-list{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.service-item h3{font-size:15px;font-weight:500;color:var(--white);margin-bottom:8px;letter-spacing:-.01em}
-.service-item p{font-size:13px;color:var(--text2);line-height:1.8;font-weight:300}
-.service-item{padding-bottom:24px;border-bottom:1px solid var(--border)}
-.research-list{margin-top:48px;display:flex;flex-direction:column;gap:20px}
-.research-row{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--border)}
-.research-row h4{font-size:14px;font-weight:400;color:var(--white);letter-spacing:-.01em}
-.research-row span{font-size:11px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;font-weight:500;white-space:nowrap;margin-left:24px}
-.connect-center{text-align:center;margin-top:48px}
-.connect-row{display:flex;gap:32px;justify-content:center;margin-top:40px;flex-wrap:wrap}
-.connect-item{text-align:center}
-.connect-item .plat{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:4px;font-weight:500}
-.connect-item .handle{font-size:14px;color:var(--text);font-weight:400;transition:color .3s}
-.connect-item:hover .handle{color:var(--white)}
-.connect-email{margin-top:48px;font-size:13px;color:var(--text3)}
-.connect-email a{color:var(--text2)}
-footer{padding:48px 32px;text-align:center}
-footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
-@media(max-width:768px){section{padding:100px 24px 60px}.hero h1{font-size:40px}h2{font-size:32px}.about-layout{grid-template-columns:1fr;gap:48px}.about-meta{position:static}.ip-grid{grid-template-columns:1fr}.service-list{grid-template-columns:1fr}.product-row{grid-template-columns:1fr;gap:12px}.product-num{display:none}.product-status{justify-self:start}nav .links{display:none}.research-row{flex-direction:column;gap:4px}.research-row span{margin-left:0}}
+.career-line{
+    margin-top:36px;padding-top:28px;border-top:1px solid var(--border);
+    font-size:13px;color:var(--text2);font-weight:400;letter-spacing:.02em;line-height:1.8;
+}
 </style>
 </head>
 <body>
-<nav><div class="inner"><a href="#" class="logo">Jipro</a><div class="links"><a href="#about">About</a><a href="#ip">Ideas</a><a href="#products">Products</a><a href="#services">Services</a><a href="#connect">Connect</a></div></div></nav>
-<section class="hero"><div class="hero-inner"><h1>Supply Chain<br>meets <em>AI</em></h1><p class="hero-desc">I study how decisions break — in supply chains, on production floors, in AI systems. Then I build the tools to catch it before it costs you.</p><div class="hero-links"><a href="#products" class="primary">See what I'm building →</a><a href="https://x.com/KCJIPro" target="_blank">@KCJIPro on X</a></div></div></section>
+
+<nav>
+<div class="inner">
+    <a href="#" class="logo">Jipro</a>
+    <div class="links">
+        <a href="#about">About</a>
+        <a href="#ip">Ideas</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#connect">Connect</a>
+    </div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+    <h1>Supply Chain<br>meets <em>AI</em></h1>
+    <p class="hero-desc">I study how decisions break — in supply chains, on production floors, in AI systems. Then I build the tools to catch it before it costs you.</p>
+    <div class="hero-links">
+        <a href="#products" class="primary">See what I'm building →</a>
+        <a href="https://x.com/KCJIPro" target="_blank">@KCJIPro on X</a>
+    </div>
+</div>
+</section>
+
 <div class="divider"></div>
-<section id="about"><div class="container"><div class="label">About</div><h2>The short <em>version</em></h2><div class="about-layout"><div class="about-meta"><div class="meta-item"><div class="meta-label">Domain</div><div class="meta-value">Supply Chain · Manufacturing · Operations</div></div><div class="meta-item"><div class="meta-label">Industry</div><div class="meta-value">Consumer Electronics · Cosmetic Manufacturing</div></div><div class="meta-item"><div class="meta-label">Systems</div><div class="meta-value">ERP · MRP · WMS · BI · Data Systems</div></div><div class="meta-item"><div class="meta-label">Education</div><div class="meta-value">M.S. Information Systems Engineering<br>B.S. Supply Chain & Information Systems</div></div><div class="meta-item"><div class="meta-label">Location</div><div class="meta-value">New York</div></div></div><div class="about-narrative"><p>I've spent my career across manufacturing and supply chain operations — from production planning and procurement on a cosmetic manufacturing floor, to demand planning and inventory management inside a Fortune 500 electronics company. ERP implementations, MRP redesigns, $6B+ in order tracking. The kind of work where a bad decision doesn't stay theoretical for long.</p><p>Over time, I noticed something that bothered me: <strong>equally capable people, looking at the same data, reaching completely different conclusions.</strong> The gap was never intelligence. It was how they structured their thinking.</p><p>That observation became a framework. I started mapping the patterns — what separates someone who reacts to data from someone who designs the system that interprets it. Six distinct levels. Applies to people, teams, and — I eventually realized — AI systems too.</p><p>Now I work at the intersection of <strong>operational systems thinking</strong> and <strong>AI reasoning architecture.</strong> Building diagnostic tools, MCP integrations, and consulting frameworks that help organizations catch decision failures before they compound.</p><div class="career-line">Manufacturing → Consumer Electronics → AI Systems</div></div></div></div></section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+    <div class="label">About</div>
+    <h2>The short <em>version</em></h2>
+    <div class="about-layout">
+        <div class="about-meta">
+            <div class="meta-item">
+                <div class="meta-label">Domain</div>
+                <div class="meta-value">Supply Chain · Manufacturing · Operations</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Industry</div>
+                <div class="meta-value">Consumer Electronics · Cosmetic Manufacturing</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Systems</div>
+                <div class="meta-value">ERP · MRP · WMS · BI · Data Systems</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Location</div>
+                <div class="meta-value">New York</div>
+            </div>
+        </div>
+        <div class="about-narrative">
+            <p>I’ve spent my career across manufacturing and supply chain operations — from production planning and procurement on a cosmetic manufacturing floor, to demand planning and inventory management inside a Fortune 500 electronics company. ERP implementations, MRP redesigns, $6B+ in order tracking. The kind of work where a bad decision doesn’t stay theoretical for long.</p>
+            <p>Over time, I noticed something that bothered me: <strong>equally capable people, looking at the same data, reaching completely different conclusions.</strong> The gap was never intelligence. It was how they structured their thinking.</p>
+            <p>That observation became a framework. I started mapping the patterns — what separates someone who reacts to data from someone who designs the system that interprets it. Six distinct levels. Applies to people, teams, and — I eventually realized — AI systems too.</p>
+            <p>Now I work at the intersection of <strong>operational systems thinking</strong> and <strong>AI reasoning architecture.</strong> Building diagnostic tools, MCP integrations, and consulting frameworks that help organizations catch decision failures before they compound.</p>
+            <div class="career-line">
+                B.S. Supply Chain & Information Systems → Manufacturing → M.S. Information Systems Engineering → Consumer Electronics → AI Systems
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
 <div class="divider"></div>
-<section id="ip"><div class="container"><div class="label">Core Ideas</div><h2>Two concepts, <em>one insight</em></h2><p style="font-size:15px;color:var(--text2);max-width:520px;font-weight:300;line-height:1.8">Small reasoning errors don't stay small. They amplify through every layer of a decision chain — in supply chains, in teams, in AI.</p><div class="ip-grid"><div class="ip-block"><h3>Cognitive Bullwhip Effect</h3><p>In supply chain, the Bullwhip Effect turns a 5% demand dip into a 40% production cut. Each node amplifies the original distortion.</p><p>AI reasoning does the same thing. A small misread compounds through framing, analysis, and recommendation — producing a confidently wrong output from a minor input error.</p><div class="ip-example"><b>→</b> NPS drops 8 points<br><b>→</b> No root cause check<br><b>→</b> "Redesign onboarding"<br><b>→</b> 3 months wasted dev resources<br><b>→</b> 8-point signal. 6-figure cost.</div></div><div class="ip-block"><h3>Structured Cognition Model</h3><p>Most diagnostic tools measure what you know. This one measures <strong style="color:var(--white)">how you think</strong> — the structural quality of reasoning itself.</p><p>The model defines six levels of cognitive maturity. At Level 1, you react to symptoms. At Level 6, you design the system that prevents symptoms from occurring.</p><div class="levels"><div class="level l1">Reactive</div><div class="level l2">Procedural</div><div class="level l3">Analytical</div><div class="level l4">Strategic</div><div class="level l5">Systemic</div><div class="level l6">Architectural</div></div><div class="ip-example" style="margin-top:20px"><b>L1</b> "Sales dropped" → panic<br><b>L3</b> "Sales dropped because X" → analysis<br><b>L5</b> "Our system would have caught X" → design<br><b>L6</b> "The system self-corrects for X" → architecture</div><p style="margin-top:20px;font-size:12px;color:var(--text3)">Works on humans, teams, and AI agents across any domain.</p></div></div></div></section>
+
+<!-- CORE IP -->
+<section id="ip">
+<div class="container">
+    <div class="label">Core Ideas</div>
+    <h2>Two concepts, <em>one insight</em></h2>
+    <p style="font-size:15px;color:var(--text2);max-width:520px;font-weight:300;line-height:1.8">Small reasoning errors don’t stay small. They amplify through every layer of a decision chain — in supply chains, in teams, in AI.</p>
+    <div class="ip-grid">
+        <div class="ip-block">
+            <h3>Cognitive Bullwhip Effect</h3>
+            <p>In supply chain, the Bullwhip Effect turns a 5% demand dip into a 40% production cut. Each node amplifies the original distortion.</p>
+            <p>AI reasoning does the same thing. A small misread compounds through framing, analysis, and recommendation — producing a confidently wrong output from a minor input error.</p>
+            <div class="ip-example">
+                <b>→</b> NPS drops 8 points<br>
+                <b>→</b> No root cause check<br>
+                <b>→</b> "Redesign onboarding"<br>
+                <b>→</b> 3 months wasted dev resources<br>
+                <b>→</b> 8-point signal. 6-figure cost.
+            </div>
+        </div>
+        <div class="ip-block">
+            <h3>Structured Cognition Model</h3>
+            <p>Most diagnostic tools measure what you know. This one measures <strong style="color:var(--white)">how you think</strong> — the structural quality of reasoning itself.</p>
+            <p>The model defines six levels of cognitive maturity. At Level 1, you react to symptoms. At Level 6, you design the system that prevents symptoms from occurring. The gap between each level isn’t knowledge — it’s the ability to see one layer deeper into causation.</p>
+            <div class="levels">
+                <div class="level l1">Reactive</div>
+                <div class="level l2">Procedural</div>
+                <div class="level l3">Analytical</div>
+                <div class="level l4">Strategic</div>
+                <div class="level l5">Systemic</div>
+                <div class="level l6">Architectural</div>
+            </div>
+            <div class="ip-example" style="margin-top:20px">
+                <b>L1</b> "Sales dropped" → panic<br>
+                <b>L3</b> "Sales dropped because X" → analysis<br>
+                <b>L5</b> "Our system would have caught X" → design<br>
+                <b>L6</b> "The system self-corrects for X" → architecture
+            </div>
+            <p style="margin-top:20px;font-size:12px;color:var(--text3)">Works on humans, teams, and AI agents across any domain — Supply Chain, Product, Engineering, Trading, AI Systems, Strategy.</p>
+        </div>
+    </div>
+</div>
+</section>
+
 <div class="divider"></div>
-<section id="products"><div class="container"><div class="label">Products</div><h2>What I'm <em>building</em></h2><p style="font-size:15px;color:var(--text2);max-width:520px;font-weight:300;line-height:1.8;margin-bottom:8px">Developer tools, diagnostic systems, and operational AI — from npm packages to enterprise architectures.</p><div class="product-list"><div class="product-row"><span class="product-num">01</span><div class="product-info"><h3>Cognitive Bullwhip Diagnostic</h3><p>Detect when small reasoning errors amplify into catastrophic decisions. Works on human analyses, team decisions, and AI agent outputs.</p></div><span class="product-status s-dev">In Development</span></div><div class="product-row"><span class="product-num">02</span><div class="product-info"><h3>SCM OS v3.0</h3><p>8-engine AI operating system for downstream supply chain — Forecast, Daily Ops, Inventory Risk, Exception, Causal Chain, Scenario, Learning, Governance.</p></div><span class="product-status s-dev">In Development</span></div><div class="product-row"><span class="product-num">03</span><div class="product-info"><h3>Structured Cognition MCP</h3><p>7-tool MCP server for Claude Desktop — signal anchoring, logic sequencing, mesh simulation, gate validation, bullwhip diagnosis.</p></div><span class="product-status s-live">Live on npm</span></div><div class="product-row"><span class="product-num">04</span><div class="product-info"><h3>SCM Agent Suite</h3><p>4-agent enterprise system — Forecast, Daily Ops, Inventory Risk, and Meta Agent with full onboarding documentation.</p></div><span class="product-status s-pkg">Packaged</span></div><div class="product-row"><span class="product-num">05</span><div class="product-info"><h3>Hybrid Mind OS</h3><p>Personal AI operating system template — 3-layer cognitive framework with role-specific configurations.</p></div><span class="product-status s-pkg">Packaged</span></div><div class="product-row"><span class="product-num">06</span><div class="product-info"><h3>Kalshi Crypto Trading Agent</h3><p>OpenClaw-powered autonomous prediction market agent — self-adjusting parameters, hourly learning cycles, and Cognitive Bullwhip detection for conviction-bias prevention.</p></div><span class="product-status s-live">Active</span></div></div></div></section>
+
+<!-- PRODUCTS -->
+<section id="products">
+<div class="container">
+    <div class="label">Products</div>
+    <h2>What I’m <em>building</em></h2>
+    <p style="font-size:15px;color:var(--text2);max-width:520px;font-weight:300;line-height:1.8;margin-bottom:8px">Developer tools, diagnostic systems, and operational AI — from npm packages to enterprise architectures.</p>
+    <div class="product-list">
+        <div class="product-row">
+            <span class="product-num">01</span>
+            <div class="product-info">
+                <h3>Cognitive Bullwhip Diagnostic</h3>
+                <p>Detect when small reasoning errors amplify into catastrophic decisions. Works on human analyses, team decisions, and AI agent outputs.</p>
+            </div>
+            <span class="product-status s-dev">In Development</span>
+        </div>
+        <div class="product-row">
+            <span class="product-num">02</span>
+            <div class="product-info">
+                <h3>SCM OS v3.0</h3>
+                <p>8-engine AI operating system for downstream supply chain — Forecast, Daily Ops, Inventory Risk, Exception, Causal Chain, Scenario, Learning, Governance.</p>
+            </div>
+            <span class="product-status s-dev">In Development</span>
+        </div>
+        <div class="product-row">
+            <span class="product-num">03</span>
+            <div class="product-info">
+                <h3>Structured Cognition MCP</h3>
+                <p>7-tool MCP server for Claude Desktop — signal anchoring, logic sequencing, mesh simulation, gate validation, bullwhip diagnosis.</p>
+            </div>
+            <span class="product-status s-live">Live on npm</span>
+        </div>
+        <div class="product-row">
+            <span class="product-num">04</span>
+            <div class="product-info">
+                <h3>SCM Agent Suite</h3>
+                <p>4-agent enterprise system — Forecast, Daily Ops, Inventory Risk, and Meta Agent with full onboarding documentation.</p>
+            </div>
+            <span class="product-status s-pkg">Packaged</span>
+        </div>
+        <div class="product-row">
+            <span class="product-num">05</span>
+            <div class="product-info">
+                <h3>Hybrid Mind OS</h3>
+                <p>Personal AI operating system template — 3-layer cognitive framework with role-specific configurations.</p>
+            </div>
+            <span class="product-status s-pkg">Packaged</span>
+        </div>
+        <div class="product-row">
+            <span class="product-num">06</span>
+            <div class="product-info">
+                <h3>Kalshi Crypto Trading Agent</h3>
+                <p>OpenClaw-powered autonomous prediction market agent — self-adjusting parameters, hourly learning cycles, and Cognitive Bullwhip detection for conviction-bias prevention.</p>
+            </div>
+            <span class="product-status s-live">Active</span>
+        </div>
+    </div>
+</div>
+</section>
+
 <div class="divider"></div>
-<section id="services"><div class="container"><div class="label">Services</div><h2>How I can <em>help</em></h2><div class="service-list"><div class="service-item"><h3>Decision Quality Audit</h3><p>Map your team's reasoning patterns against the Structured Cognition Model. Get a distribution analysis showing where thinking breaks down and specific paths to elevate decision quality.</p></div><div class="service-item"><h3>Supply Chain AI Architecture</h3><p>Design AI systems for downstream supply chain — forecasting, inventory optimization, exception management, causal chain analysis. Built from real enterprise ops, not theory.</p></div><div class="service-item"><h3>AI Agent Reasoning Audit</h3><p>Evaluate your AI agent's reasoning quality against the 6-level framework. Detect Cognitive Bullwhip patterns — where small input errors amplify into wrong outputs.</p></div><div class="service-item"><h3>AI Systems Coaching</h3><p>1:1 advisory for professionals building AI-augmented workflows. Structured thinking frameworks, prompt architecture, and cognitive system design for your domain.</p></div><div class="service-item"><h3>AI Governance & Ethics</h3><p>Framework design for responsible AI deployment — decision gates, override protection, validation layers, governance protocols that prevent reasoning failures at scale.</p></div><div class="service-item"><h3>Enterprise AI Consulting</h3><p>End-to-end AI transformation for operations teams. From problem identification to system design to deployment — grounded in real supply chain experience.</p></div></div></div></section>
+
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+    <div class="label">Services</div>
+    <h2>How I can <em>help</em></h2>
+    <div class="service-list">
+        <div class="service-item">
+            <h3>Decision Quality Audit</h3>
+            <p>Map your team’s reasoning patterns against the Structured Cognition Model. Get a distribution analysis showing where thinking breaks down and specific paths to elevate decision quality.</p>
+        </div>
+        <div class="service-item">
+            <h3>Supply Chain AI Architecture</h3>
+            <p>Design AI systems for downstream supply chain — forecasting, inventory optimization, exception management, causal chain analysis. Built from real enterprise ops, not theory.</p>
+        </div>
+        <div class="service-item">
+            <h3>AI Agent Reasoning Audit</h3>
+            <p>Evaluate your AI agent’s reasoning quality against the 6-level framework. Detect Cognitive Bullwhip patterns — where small input errors amplify into wrong outputs.</p>
+        </div>
+        <div class="service-item">
+            <h3>AI Systems Coaching</h3>
+            <p>1:1 advisory for professionals building AI-augmented workflows. Structured thinking frameworks, prompt architecture, and cognitive system design for your domain.</p>
+        </div>
+        <div class="service-item">
+            <h3>AI Governance & Ethics</h3>
+            <p>Framework design for responsible AI deployment — decision gates, override protection, validation layers, governance protocols that prevent reasoning failures at scale.</p>
+        </div>
+        <div class="service-item">
+            <h3>Enterprise AI Consulting</h3>
+            <p>End-to-end AI transformation for operations teams. From problem identification to system design to deployment — grounded in real supply chain experience.</p>
+        </div>
+    </div>
+</div>
+</section>
+
 <div class="divider"></div>
-<section id="research"><div class="container"><div class="label">Research & Writing</div><h2>Frameworks & <em>papers</em></h2><div class="research-list"><div class="research-row"><h4>The Structured Cognition Model v2.4 — Enterprise Edition</h4><span>White Paper</span></div><div class="research-row"><h4>The Architecture of a Hybrid Mind</h4><span>Framework</span></div><div class="research-row"><h4>Machine Learning in Cosmetic Manufacturing and NFT of Cosmetic Formula</h4><span>Published Paper</span></div><div class="research-row"><h4>UNIFIED SCM OS v3.0 — Knowledge File</h4><span>Technical Spec</span></div><div class="research-row"><h4>I Used ChatGPT Every Day for 3 Years — This Is What My Mind Became</h4><span>Essay</span></div><div class="research-row"><h4>SCM Agent Suite — User Guide & Onboarding</h4><span>Documentation</span></div></div></div></section>
+
+<!-- RESEARCH -->
+<section id="research">
+<div class="container">
+    <div class="label">Research & Writing</div>
+    <h2>Frameworks & <em>papers</em></h2>
+    <div class="research-list">
+        <div class="research-row">
+            <h4>The Structured Cognition Model v2.4 — Enterprise Edition</h4>
+            <span>White Paper</span>
+        </div>
+        <div class="research-row">
+            <h4>The Architecture of a Hybrid Mind</h4>
+            <span>Framework</span>
+        </div>
+        <div class="research-row">
+            <h4>Machine Learning in Cosmetic Manufacturing and NFT of Cosmetic Formula</h4>
+            <span>Published Paper</span>
+        </div>
+        <div class="research-row">
+            <h4>UNIFIED SCM OS v3.0 — Knowledge File</h4>
+            <span>Technical Spec</span>
+        </div>
+        <div class="research-row">
+            <h4>I Used ChatGPT Every Day for 3 Years — This Is What My Mind Became</h4>
+            <span>Essay</span>
+        </div>
+        <div class="research-row">
+            <h4>SCM Agent Suite — User Guide & Onboarding</h4>
+            <span>Documentation</span>
+        </div>
+    </div>
+</div>
+</section>
+
 <div class="divider"></div>
-<section id="connect"><div class="container connect-center"><div class="label">Connect</div><h2>Let's build <em>something</em></h2><div class="connect-row"><a href="https://x.com/KCJIPro" target="_blank" class="connect-item"><div class="plat">X</div><div class="handle">@KCJIPro</div></a><a href="https://github.com/JIPRO589" target="_blank" class="connect-item"><div class="plat">GitHub</div><div class="handle">JIPRO589</div></a><a href="https://www.npmjs.com/package/@agdp/structured-cognition" target="_blank" class="connect-item"><div class="plat">npm</div><div class="handle">@agdp/structured-cognition</div></a></div><div class="connect-email">Consulting — <a href="mailto:jipro589@gmail.com">jipro589@gmail.com</a></div></div></section>
-<footer><p>© 2026 JIPRO</p></footer>
+
+<!-- CONNECT -->
+<section id="connect">
+<div class="container connect-center">
+    <div class="label">Connect</div>
+    <h2>Let’s build <em>something</em></h2>
+    <div class="connect-row">
+        <a href="https://x.com/KCJIPro" target="_blank" class="connect-item">
+            <div class="plat">X</div>
+            <div class="handle">@KCJIPro</div>
+        </a>
+        <a href="https://github.com/JIPRO589" target="_blank" class="connect-item">
+            <div class="plat">GitHub</div>
+            <div class="handle">JIPRO589</div>
+        </a>
+        <a href="https://www.npmjs.com/package/@agdp/structured-cognition" target="_blank" class="connect-item">
+            <div class="plat">npm</div>
+            <div class="handle">@agdp/structured-cognition</div>
+        </a>
+    </div>
+    <div class="connect-email">Consulting — <a href="mailto:jipro589@gmail.com">jipro589@gmail.com</a></div>
+</div>
+</section>
+
+<footer>
+    <p>© 2026 JIPRO</p>
+</footer>
+
 </body>
 </html>
