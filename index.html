@@ -81,7 +81,13 @@ h2 em{font-style:italic;color:var(--accent)}
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero-desc{
     font-size:17px;color:var(--text2);max-width:520px;
-    line-height:1.8;font-weight:300;margin-bottom:48px;
+    line-height:1.8;font-weight:300;margin-bottom:16px;
+}
+.hero-audience{
+    font-size:14px;color:var(--text);max-width:520px;
+    line-height:1.7;font-weight:400;margin-bottom:48px;
+    padding:12px 0;
+    border-top:1px solid var(--border);
 }
 .hero-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
 .hero-links a{
@@ -150,12 +156,32 @@ h2 em{font-style:italic;color:var(--accent)}
 .s-live{background:rgba(120,180,140,.1);color:rgba(140,200,160,.8);border:1px solid rgba(120,180,140,.15)}
 .s-dev{background:rgba(120,160,200,.1);color:rgba(140,180,220,.8);border:1px solid rgba(120,160,200,.15)}
 .s-pkg{background:rgba(200,180,140,.1);color:rgba(200,180,140,.8);border:1px solid rgba(200,180,140,.15)}
+.more-toggle{
+    margin-top:24px;font-size:12px;font-weight:500;letter-spacing:.06em;
+    color:var(--text2);cursor:pointer;padding:10px 0;
+    border:none;background:none;transition:color .3s;
+    text-transform:uppercase;
+}
+.more-toggle:hover{color:var(--white)}
+.more-projects{
+    margin-top:12px;display:none;flex-direction:column;gap:1px;
+    background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+    opacity:0;transition:opacity .3s;
+}
+.more-projects.open{display:flex;opacity:1}
+.more-projects .product-row{opacity:.7}
+.more-projects .product-row:hover{opacity:1}
 
 /* SERVICES */
 .service-list{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .service-item h3{font-size:15px;font-weight:500;color:var(--white);margin-bottom:8px;letter-spacing:-.01em}
 .service-item p{font-size:13px;color:var(--text2);line-height:1.8;font-weight:300}
 .service-item{padding-bottom:24px;border-bottom:1px solid var(--border)}
+.service-deliverable{
+    margin-top:10px;font-size:11.5px;color:var(--text3);font-weight:400;
+    letter-spacing:.01em;line-height:1.6;
+    padding-top:8px;border-top:1px solid var(--border);
+}
 
 /* RESEARCH */
 .research-list{margin-top:48px;display:flex;flex-direction:column;gap:20px}
@@ -186,11 +212,13 @@ h2 em{font-style:italic;color:var(--accent)}
 
 /* CONNECT */
 .connect-center{text-align:center;margin-top:48px}
-.connect-row{display:flex;gap:32px;justify-content:center;margin-top:40px;flex-wrap:wrap}
-.connect-item{text-align:center}
-.connect-item .plat{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:4px;font-weight:500}
-.connect-item .handle{font-size:14px;color:var(--text);font-weight:400;transition:color .3s}
-.connect-item:hover .handle{color:var(--white)}
+.connect-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.connect-card{background:var(--surface);padding:28px 24px;text-align:center;transition:background .3s}
+.connect-card:hover{background:var(--surface2)}
+.connect-card .purpose{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;font-weight:500}
+.connect-card .handle{font-size:14px;color:var(--text);font-weight:400;transition:color .3s}
+.connect-card:hover .handle{color:var(--white)}
+.connect-card .plat{font-size:11px;color:var(--text3);margin-top:4px;font-weight:300}
 .connect-email{margin-top:48px;font-size:13px;color:var(--text3)}
 .connect-email a{color:var(--text2)}
 
@@ -204,6 +232,7 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
     .hero{min-height:auto;padding-top:120px;padding-bottom:80px}
     .hero h1{font-size:clamp(36px,10vw,48px)}
     .hero-desc{font-size:15px;max-width:100%}
+    .hero-audience{font-size:13px}
     h2{font-size:30px}
     nav .links{display:none}
     nav .inner{padding:14px 20px}
@@ -231,10 +260,12 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
     .research-row span{margin-left:0;font-size:10px}
     .research-row a{flex-direction:column;gap:4px}
     .library-callout{flex-direction:column;padding:28px 24px;text-align:center;gap:20px}
-    .connect-row{flex-direction:column;gap:24px;align-items:center}
-    .connect-item .handle{font-size:13px}
+    .connect-grid{grid-template-columns:1fr;max-width:320px}
     .connect-email{font-size:12px;margin-top:36px}
     footer{padding:36px 20px}
+    .more-projects{border-radius:8px}
+    .more-projects .product-row{grid-template-columns:1fr;gap:8px;padding:24px 20px}
+    .more-projects .product-num{display:none}
 }
 
 /* RESPONSIVE — Small Mobile */
@@ -242,7 +273,8 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
     section{padding:80px 16px 48px}
     .hero{padding-top:100px;padding-bottom:60px}
     .hero h1{font-size:32px;margin-bottom:24px}
-    .hero-desc{font-size:14px;margin-bottom:36px;line-height:1.7}
+    .hero-desc{font-size:14px;margin-bottom:12px;line-height:1.7}
+    .hero-audience{font-size:12px;margin-bottom:36px}
     .hero-links{gap:16px}
     .hero-links a{font-size:12px;padding:10px 0}
     h2{font-size:26px;margin-bottom:16px}
@@ -258,10 +290,10 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
     .product-info h3{font-size:14px}
     .product-info p{font-size:11.5px}
     .service-item p{font-size:11.5px}
+    .service-deliverable{font-size:10.5px}
     .library-callout-text h4{font-size:16px}
     .library-callout-text p{font-size:12px}
-    .connect-item .plat{font-size:9px}
-    .connect-item .handle{font-size:12px}
+    .connect-card .handle{font-size:12px}
     nav .inner{padding:12px 16px}
     nav .logo{font-size:13px}
 }
@@ -288,6 +320,7 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
 <div class="hero-inner">
     <h1>Supply Chain<br>meets <em>AI</em></h1>
     <p class="hero-desc">I study how decisions break — in supply chains, on production floors, in AI systems. Then I build the tools to catch it before it costs you.</p>
+    <p class="hero-audience">For operations leaders and AI builders who need decision systems that fail less.</p>
     <div class="hero-links">
         <a href="#products" class="primary">See what I'm building →</a>
         <a href="https://jipro-ai.github.io/profji-library/" class="library-link">Ji Research Library →</a>
@@ -323,10 +356,9 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
             </div>
         </div>
         <div class="about-narrative">
-            <p>I've spent my career across manufacturing and supply chain operations — from production planning and procurement on a cosmetic manufacturing floor, to demand planning and inventory management inside a Fortune 500 electronics company. ERP implementations, MRP redesigns, $6B+ in order tracking. The kind of work where a bad decision doesn't stay theoretical for long.</p>
-            <p>Over time, I noticed something that bothered me: <strong>equally capable people, looking at the same data, reaching completely different conclusions.</strong> The gap was never intelligence. It was how they structured their thinking.</p>
-            <p>That observation became a framework. I started mapping the patterns — what separates someone who reacts to data from someone who designs the system that interprets it. Six distinct levels. Applies to people, teams, and — I eventually realized — AI systems too.</p>
-            <p>Now I work at the intersection of <strong>operational systems thinking</strong> and <strong>AI reasoning architecture.</strong> Building diagnostic tools, MCP integrations, and consulting frameworks that help organizations catch decision failures before they compound.</p>
+            <p>Now I work at the intersection of <strong>operational systems thinking</strong> and <strong>AI reasoning architecture</strong> — building diagnostic tools, MCP integrations, and consulting frameworks that help organizations catch decision failures before they compound.</p>
+            <p>The background: manufacturing and supply chain operations — production planning and procurement on a cosmetic manufacturing floor, demand planning and inventory management inside a Fortune 500 electronics company. ERP implementations, MRP redesigns, $6B+ in order tracking. The kind of work where a bad decision doesn't stay theoretical for long.</p>
+            <p>Over time, I noticed something: <strong>equally capable people, looking at the same data, reaching completely different conclusions.</strong> The gap was never intelligence. It was how they structured their thinking. That observation became the Structured Cognition Model — six levels of cognitive maturity that apply to people, teams, and AI systems.</p>
             <div class="career-line">
                 B.S. Supply Chain & Information Systems → Manufacturing → M.S. Information Systems Engineering → Consumer Electronics → AI Systems
             </div>
@@ -349,11 +381,11 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
             <p>In supply chain, the Bullwhip Effect turns a 5% demand dip into a 40% production cut. Each node amplifies the original distortion.</p>
             <p>AI reasoning does the same thing. A small misread compounds through framing, analysis, and recommendation — producing a confidently wrong output from a minor input error.</p>
             <div class="ip-example">
-                <b>→</b> NPS drops 8 points<br>
-                <b>→</b> No root cause check<br>
-                <b>→</b> "Redesign onboarding"<br>
-                <b>→</b> 3 months wasted dev resources<br>
-                <b>→</b> 8-point signal. 6-figure cost.
+                <b>→</b> Demand forecast off by 5%<br>
+                <b>→</b> Safety stock recalculated without root cause<br>
+                <b>→</b> Procurement over-orders by 30%<br>
+                <b>→</b> Warehouse overflow, emergency markdowns<br>
+                <b>→</b> 5% signal. 6-figure cost.
             </div>
         </div>
         <div class="ip-block">
@@ -374,7 +406,7 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
                 <b>L5</b> "Our system would have caught X" → design<br>
                 <b>L6</b> "The system self-corrects for X" → architecture
             </div>
-            <p style="margin-top:20px;font-size:12px;color:var(--text3)">Works on humans, teams, and AI agents across any domain — Supply Chain, Product, Engineering, Trading, AI Systems, Strategy.</p>
+            <p style="margin-top:20px;font-size:12px;color:var(--text3)">Works on humans, teams, and AI agents — especially useful for supply chain, AI workflows, and decision-heavy teams.</p>
         </div>
     </div>
 </div>
@@ -389,38 +421,41 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
     <h2>What I'm <em>building</em></h2>
     <p style="font-size:15px;color:var(--text2);max-width:520px;font-weight:300;line-height:1.8;margin-bottom:8px">Developer tools, diagnostic systems, and operational AI — from npm packages to enterprise architectures.</p>
     <div class="product-list">
-        <a href="https://jipro-ai.github.io/profji-library/" class="product-row" style="text-decoration:none;color:inherit">
-            <span class="product-num">01</span>
-            <div class="product-info">
-                <h3>Ji Research Library</h3>
-                <p>AI-powered autonomous research library. Multi-agent system (OpenClaw + local LLM) that researches, writes, and reviews academic articles on AI cognition, human-AI interaction, and agent systems. Curated by human, produced by AI.</p>
-            </div>
-            <span class="product-status s-live">Live</span>
-        </a>
         <a href="https://github.com/JIPRO-AI/Cognitive-Bullwhip-Diagnotics" target="_blank" class="product-row" style="text-decoration:none;color:inherit">
-            <span class="product-num">02</span>
+            <span class="product-num">01</span>
             <div class="product-info">
                 <h3>Cognitive Bullwhip Diagnostics</h3>
                 <p>6 deterministic MCP tools that detect reasoning amplification in AI agent systems. Maps the supply chain Bullwhip Effect onto multi-layer decision pipelines. 58 E2E tests, Kalshi trading bot case study.</p>
             </div>
             <span class="product-status s-live">Live on GitHub</span>
         </a>
-        <div class="product-row">
-            <span class="product-num">03</span>
-            <div class="product-info">
-                <h3>SCM OS v3.0</h3>
-                <p>8-engine AI operating system for downstream supply chain — Forecast, Daily Ops, Inventory Risk, Exception, Causal Chain, Scenario, Learning, Governance.</p>
-            </div>
-            <span class="product-status s-dev">In Development</span>
-        </div>
         <a href="https://github.com/JIPRO-AI/Cognitive-Bullwhip-Diagnotics" target="_blank" class="product-row" style="text-decoration:none;color:inherit">
-            <span class="product-num">04</span>
+            <span class="product-num">02</span>
             <div class="product-info">
                 <h3>Structured Cognition MCP Server</h3>
                 <p>6-tool MCP server for Claude Desktop & Cursor — anchor_classify, logic_sequence, mesh_simulate, gate_validate, bullwhip_diagnose, sc_pipeline. 100% deterministic, no LLM inside.</p>
             </div>
             <span class="product-status s-live">Live on GitHub</span>
         </a>
+        <a href="https://jipro-ai.github.io/profji-library/" class="product-row" style="text-decoration:none;color:inherit">
+            <span class="product-num">03</span>
+            <div class="product-info">
+                <h3>Ji Research Library</h3>
+                <p>AI-powered autonomous research library. Multi-agent system (OpenClaw + local LLM) that researches, writes, and reviews academic articles on AI cognition, human-AI interaction, and agent systems.</p>
+            </div>
+            <span class="product-status s-live">Live</span>
+        </a>
+    </div>
+    <button class="more-toggle" onclick="document.querySelector('.more-projects').classList.toggle('open');this.textContent=this.textContent.includes('More')?'Hide projects ↑':'More projects ↓'">More projects ↓</button>
+    <div class="more-projects">
+        <div class="product-row">
+            <span class="product-num">04</span>
+            <div class="product-info">
+                <h3>SCM OS v3.0</h3>
+                <p>8-engine AI operating system for downstream supply chain — Forecast, Daily Ops, Inventory Risk, Exception, Causal Chain, Scenario, Learning, Governance.</p>
+            </div>
+            <span class="product-status s-dev">In Development</span>
+        </div>
         <div class="product-row">
             <span class="product-num">05</span>
             <div class="product-info">
@@ -460,26 +495,32 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
         <div class="service-item">
             <h3>Decision Quality Audit</h3>
             <p>Map your team's reasoning patterns against the Structured Cognition Model. Get a distribution analysis showing where thinking breaks down and specific paths to elevate decision quality.</p>
+            <div class="service-deliverable">Deliverable: reasoning distribution map, failure pattern summary, and prioritized recommendations.</div>
         </div>
         <div class="service-item">
             <h3>Supply Chain AI Architecture</h3>
             <p>Design AI systems for downstream supply chain — forecasting, inventory optimization, exception management, causal chain analysis. Built from real enterprise ops, not theory.</p>
+            <div class="service-deliverable">Deliverable: architecture design document, integration roadmap, and validation criteria.</div>
         </div>
         <div class="service-item">
             <h3>AI Agent Reasoning Audit</h3>
             <p>Evaluate your AI agent's reasoning quality against the 6-level framework. Detect Cognitive Bullwhip patterns — where small input errors amplify into wrong outputs.</p>
+            <div class="service-deliverable">Deliverable: reasoning audit report, failure mode analysis, and validation design recommendations.</div>
         </div>
         <div class="service-item">
             <h3>AI Systems Coaching</h3>
             <p>1:1 advisory for professionals building AI-augmented workflows. Structured thinking frameworks, prompt architecture, and cognitive system design for your domain.</p>
+            <div class="service-deliverable">Deliverable: 90-minute session and written follow-up memo with actionable recommendations.</div>
         </div>
         <div class="service-item">
             <h3>AI Governance & Ethics</h3>
             <p>Framework design for responsible AI deployment — decision gates, override protection, validation layers, governance protocols that prevent reasoning failures at scale.</p>
+            <div class="service-deliverable">Deliverable: governance framework document, decision gate specifications, and implementation checklist.</div>
         </div>
         <div class="service-item">
             <h3>Enterprise AI Consulting</h3>
             <p>End-to-end AI transformation for operations teams. From problem identification to system design to deployment — grounded in real supply chain experience.</p>
+            <div class="service-deliverable">Deliverable: problem assessment, system design memo, deployment plan, and 30-day follow-up review.</div>
         </div>
     </div>
 </div>
@@ -492,16 +533,16 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
 <div class="container">
     <div class="label">Research</div>
     <h2>Ji Research <em>Library</em></h2>
-    <p style="font-size:15px;color:var(--text2);max-width:560px;font-weight:300;line-height:1.8;margin-bottom:8px">AI 에이전트가 자율적으로 연구하고, 인간이 큐레이션하는 학술 리서치 라이브러리. AI 심리학, 인지 융합, 에이전트 시스템을 탐구합니다.</p>
+    <p style="font-size:15px;color:var(--text2);max-width:560px;font-weight:300;line-height:1.8;margin-bottom:8px">An autonomous research library where AI agents research, write, and review — and a human curates. Exploring AI cognition, human-AI interaction, and agent system design.</p>
 
     <div class="library-callout" style="text-decoration:none;margin-top:40px;cursor:default">
         <div class="library-callout-text">
             <h4 style="margin-bottom:12px">Research Domains</h4>
             <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--text2);font-weight:300">
-                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#c9849b;flex-shrink:0"></span>AI 심리학</span>
-                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#9088b8;flex-shrink:0"></span>인지 융합</span>
-                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#6a9e86;flex-shrink:0"></span>AI 기술</span>
-                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#b89468;flex-shrink:0"></span>에이전트</span>
+                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#c9849b;flex-shrink:0"></span>AI Psychology</span>
+                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#9088b8;flex-shrink:0"></span>Cognitive Fusion</span>
+                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#6a9e86;flex-shrink:0"></span>AI Technology</span>
+                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#b89468;flex-shrink:0"></span>Agent Systems</span>
             </div>
         </div>
         <a href="https://jipro-ai.github.io/profji-library/" class="library-callout-link">Visit Library →</a>
@@ -523,7 +564,7 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
     </div>
 
     <div style="margin-top:28px;font-size:13px;color:var(--text3);font-weight:300;line-height:1.7">
-        Powered by OpenClaw multi-agent system — Qwen 3.5 9B (local) for writing & review, Gemini + Semantic Scholar + PubMed + arXiv for research.
+        Powered by OpenClaw multi-agent system — local LLMs for writing & review, arXiv + Semantic Scholar for research.
     </div>
 </div>
 </section>
@@ -535,25 +576,28 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
 <div class="container connect-center">
     <div class="label">Connect</div>
     <h2>Let's build <em>something</em></h2>
-    <div class="connect-row">
-        <a href="https://x.com/KCJIPro" target="_blank" class="connect-item">
-            <div class="plat">X</div>
-            <div class="handle">@KCJIPro</div>
+    <div class="connect-grid">
+        <a href="mailto:jipro589@gmail.com" class="connect-card" style="text-decoration:none;color:inherit">
+            <div class="purpose">For consulting</div>
+            <div class="handle">jipro589@gmail.com</div>
+            <div class="plat">Email</div>
         </a>
-        <a href="https://github.com/JIPRO-AI" target="_blank" class="connect-item">
-            <div class="plat">GitHub</div>
+        <a href="https://github.com/JIPRO-AI" target="_blank" class="connect-card" style="text-decoration:none;color:inherit">
+            <div class="purpose">For tools & code</div>
             <div class="handle">JIPRO-AI</div>
+            <div class="plat">GitHub</div>
         </a>
-        <a href="https://jipro-ai.github.io/profji-library/" class="connect-item">
-            <div class="plat">Research</div>
+        <a href="https://jipro-ai.github.io/profji-library/" class="connect-card" style="text-decoration:none;color:inherit">
+            <div class="purpose">For research & ideas</div>
             <div class="handle">Ji Research Library</div>
+            <div class="plat">Library</div>
         </a>
-        <a href="https://github.com/JIPRO-AI/Cognitive-Bullwhip-Diagnotics" target="_blank" class="connect-item">
-            <div class="plat">MCP Server</div>
-            <div class="handle">Cognitive Bullwhip Diagnostics</div>
+        <a href="https://x.com/KCJIPro" target="_blank" class="connect-card" style="text-decoration:none;color:inherit">
+            <div class="purpose">For updates</div>
+            <div class="handle">@KCJIPro</div>
+            <div class="plat">X</div>
         </a>
     </div>
-    <div class="connect-email">Consulting — <a href="mailto:jipro589@gmail.com">jipro589@gmail.com</a></div>
 </div>
 </section>
 
