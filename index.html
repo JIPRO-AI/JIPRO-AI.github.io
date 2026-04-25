@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JIPRO — Supply Chain × AI</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none';" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline';" />
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta name="description" content="JIPRO — I design systems for how humans and AI reason together. Creator of Cognitive Bullwhip Effect, Structured Cognition Model, and Hybrid Mind framework.">
@@ -334,6 +334,32 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
     nav .inner{padding:12px 16px}
     nav .logo{font-size:13px}
 }
+
+/* ── Scroll Reveal ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── IP Block hover glow ── */
+.ip-block {
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.ip-block:hover {
+    background: var(--surface2);
+    box-shadow: inset 0 0 0 1px rgba(160,180,200,0.1);
+}
+.ip-full {
+    transition: background 0.3s ease;
+}
+.ip-full:hover {
+    background: var(--surface2);
+}
 </style>
 </head>
 <body>
@@ -633,5 +659,34 @@ footer p{font-size:11px;color:var(--text3);letter-spacing:.04em}
     <p>© 2026 JIPRO</p>
 </footer>
 
+<script>
+(function(){
+    var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if(e.isIntersecting){
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, {threshold: 0.07, rootMargin: '0px 0px -30px 0px'});
+
+    var selectors = [
+        '.hero-inner > *',
+        '.about-layout > *',
+        '.ip-block',
+        '.ip-full',
+        '.product-row',
+        '.service-item',
+        '.research-card',
+        '.library-callout',
+        '.connect-card'
+    ];
+    document.querySelectorAll(selectors.join(',')).forEach(function(el, i){
+        el.classList.add('reveal');
+        el.style.transitionDelay = (Math.floor(i % 3) * 0.09) + 's';
+        obs.observe(el);
+    });
+})();
+</script>
 </body>
 </html>
